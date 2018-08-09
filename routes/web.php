@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/admin/', 'admin\testController@test2');
+Route::get('/admin/', 'admin\adminController@dashboard');
 Route::get('/admin/home', 'pagesController@home');
 
 Auth::routes();

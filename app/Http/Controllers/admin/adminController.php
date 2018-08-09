@@ -5,12 +5,12 @@ namespace App\Http\Controllers\admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class testController extends Controller
+class adminController extends Controller
 {
     //
-    public function test2($value='')
+    public function dashboard($value='')
     {
     	# code...
-    	return "yess";
+    	return view('admin.dashboard');
     }
 }
