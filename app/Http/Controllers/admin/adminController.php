@@ -13,4 +13,10 @@ class adminController extends Controller
     	# code...
     	return view('admin.dashboard');
     }
+
+    public function dashboard2($value='')
+    {
+    	# code...
+    	return view('admin.dashboard');
+    }
 }
