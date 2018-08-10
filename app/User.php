@@ -23,8 +23,8 @@ class User extends Authenticatable
         'name', 'email', 'password',
     ];
 
-    public function isAdmin()    {        
-        return $this->role === self::SUPER_USER;    
+    public function isAdmin()    {
+        return (int)$this->role === self::SUPER_USER;    
     }
 
     /**
