@@ -22,3 +22,11 @@ Route::get('/admin/home', 'admin\adminController@dashboard');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+/*** Subsciprtion ***/
+Route::match(['get','post'],'/admin/add-subscription','subscriptionController@addSubscription');
+Route::match(['get','post'],'/admin/edit-subscription/{id}','subscriptionController@editSubscription');
+Route::match(['get','post'],'/admin/delete-subscription/{id}','subscriptionController@deleteSubscription');
+Route::get('/admin/view-subscription','subscriptionController@viewSubscription');
+
+
