@@ -32,5 +32,7 @@
 
 <script type="text/javascript" src="{{ asset('admin_asset/js/demo_dashboard.js') }}"></script>
 
+@yield('scripts')
+
 </body> 
 </html>

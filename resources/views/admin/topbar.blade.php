@@ -20,9 +20,10 @@
                             <li><a href="#" class="mb-control" data-box="#mb-signout"><span class="fa fa-sign-out"></span> Sign Out</a></li>
                         </ul>                        
                     </li> 
-                    <!-- END POWER OFF -->                    
+                    <!-- END POWER OFF -->
+                    
                     <!-- MESSAGES -->
-                    <li class="xn-icon-button pull-right">
+                    <!-- <li class="xn-icon-button pull-right">
                         <a href="#"><span class="fa fa-comments"></span></a>
                         <div class="informer informer-danger">4</div>
                         <div class="panel panel-primary animated zoomIn xn-drop-left xn-panel-dragging">
@@ -62,10 +63,11 @@
                                 <a href="pages-messages.html">Show all messages</a>
                             </div>                            
                         </div>                        
-                    </li>
+                    </li> -->
                     <!-- END MESSAGES -->
+
                     <!-- TASKS -->
-                    <li class="xn-icon-button pull-right">
+                    <!-- <li class="xn-icon-button pull-right">
                         <a href="#"><span class="fa fa-tasks"></span></a>
                         <div class="informer informer-warning">3</div>
                         <div class="panel panel-primary animated zoomIn xn-drop-left xn-panel-dragging">
@@ -109,17 +111,18 @@
                                 <a href="pages-tasks.html">Show all tasks</a>
                             </div>                            
                         </div>                        
-                    </li>
+                    </li> -->
                     <!-- END TASKS -->
+
                     <!-- LANG BAR -->
-                    <li class="xn-icon-button pull-right">
+                    <!-- <li class="xn-icon-button pull-right">
                         <a href="#"><span class="flag flag-gb"></span></a>
                         <ul class="xn-drop-left xn-drop-white animated zoomIn">
                             <li><a href="#"><span class="flag flag-gb"></span> English</a></li>
                             <li><a href="#"><span class="flag flag-de"></span> Deutsch</a></li>
                             <li><a href="#"><span class="flag flag-cn"></span> Chinese</a></li>
                         </ul>                        
-                    </li> 
+                    </li>  -->
                     <!-- END LANG BAR -->
                 </ul>
                 <!-- END X-NAVIGATION VERTICAL -->

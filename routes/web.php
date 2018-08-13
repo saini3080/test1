@@ -15,9 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('admin', 'admin\adminController@dashboard')->middleware('is_admin')->name('admin');
+Route::get('admin', 'admin\adminController@dashboard');
 
-Route::get('/admin/home', 'admin\adminController@dashboard');
+Route::match(['get','post'],'admin/login', 'admin\adminController@login')->middleware('guest');
+
+Route::get('admin/logout', 'admin\adminController@logout');
+Route::get('admin/home', 'admin\adminController@dashboard');
 
 Auth::routes();
 
