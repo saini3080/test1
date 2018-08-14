@@ -28,12 +28,12 @@ $(document).ready(function(){
 	$('select').select2();
 	*/
 	// Form Validation
-    $("#add_faq").validate({
+    $("#add_page").validate({
 		rules:{
-			faq_name:{
+			page_name:{
 				required:true
 			},
-			faq_desc:{
+			page_content:{
 				required:true,
 			},
 		},
@@ -48,12 +48,12 @@ $(document).ready(function(){
 		}
 	});
 
-	$("#add_faq").validate({
+	$("#edit_page").validate({
 		rules:{
-			faq_name:{
+			page_name:{
 				required:true
 			},
-			faq_desc:{
+			page_content:{
 				required:true,
 			},
 		},
@@ -68,8 +68,8 @@ $(document).ready(function(){
 		}
 	});
 	
-	$('#faq_desc').summernote({
-		height: 500,
+	$('#page_content').summernote({
+		height: 400,
 	});
 	
 	/*$("#number_validate").validate({
@@ -128,11 +128,11 @@ $(document).ready(function(){
 		}
 	});*/
 
-	$("#delFaq").click(function(){
+	/*$("#delFaq").click(function(){
 		if(confirm('Are you sure you want to delete this Faq'))
 		{
 			return true;
 		}
 		return false;
-	});
+	});*/
 });

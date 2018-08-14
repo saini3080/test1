@@ -36,6 +36,9 @@
 <script src="{{ asset('js/backend_js/subscription_form_validation.js') }}"></script>
 <script src="{{ asset('js/backend_js/faq_form_validation.js') }}"></script>
 <script src="{{ asset('js/backend_js/jquery.dataTables.min.js') }}"></script> 
+<script src="{{ asset('js/backend_js/summernote.js') }}"></script> 
+<script src="{{ asset('js/backend_js/page_form_validation.js') }}"></script> 
+<script src="{{ asset('js/backend_js/edit-profile.js') }}"></script> 
 
 @yield('scripts')
 

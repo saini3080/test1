@@ -21,7 +21,8 @@ class subscriptionController extends Controller
     		$subscription = new Subscription;
 			$subscription->name = $data['subsciption_name'];
     		$subscription->description = $data['subsciption_desc'];
-    		$subscription->price = $data['subsciption_price'];
+            $subscription->price = $data['subsciption_price'];
+    		$subscription->agent = $data['subsciption_agent'];
     		$subscription->duration = $data['subsciption_duration'];
     		$subscription->save();
     		return redirect('/admin/view-subscription')->with('flash_message_success','Subscription added successfully');
@@ -33,7 +34,7 @@ class subscriptionController extends Controller
     	if($request->isMethod('post'))
     	{
     		$data = $request->all();
-    		Subscription::where(['id'=>$id])->update(['name'=>$data['subsciption_name'],'description'=>$data['subsciption_desc'],'price'=>$data['subsciption_price'],'duration'=>$data['subsciption_duration']]);
+    		Subscription::where(['id'=>$id])->update(['name'=>$data['subsciption_name'],'description'=>$data['subsciption_desc'],'price'=>$data['subsciption_price'],'agent'=>$data['subsciption_agent'],'duration'=>$data['subsciption_duration']]);
     		return redirect('/admin/view-subscription')->with('flash_message_success','Subscription update successfully');
     	}
     	$SubscriptionDetails = Subscription::where(['id'=>$id])->first();
