@@ -6,7 +6,7 @@
   <div id="content-header">
     <ul class="breadcrumb">
         <li><a href="{{ url('/admin') }}">Home</a></li>                    
-        <li class="active">Subsciption</li>
+        <li class="active">FAQ</li>
     </ul>
     <h1>Subsciptions</h1>
     @if(Session::has('flash_message_error'))    
@@ -34,25 +34,21 @@
             <table class="table table-bordered data-table">
               <thead>
                 <tr>
-                  <th>Subsciption ID</th>
-                  <th>Subsciption Name</th>
-                  <th>Subsciption Description</th>
-                  <th>Subsciption Price</th>
-                  <th>Subsciption Duration</th>
+                  <th>Faq ID</th>
+                  <th>Faq Name</th>
+                  <th>Faq Description</th>
                   <th>Actions</th>
                 </tr>
               </thead>
               <tbody>
-              	@foreach( $Subscription as $subscript )
+              	@foreach( $Faq as $fqq )
                 <tr class="gradeX">
-                  <td>{{ $subscript->id }}</td>
-                  <td>{{ $subscript->name }}</td>
-                  <td>{{ $subscript->description }}</td>
-                  <td>{{ $subscript->price }}</td>
-                  <td>{{ $subscript->duration }}</td>
+                  <td>{{ $fqq->id }}</td>
+                  <td>{{ $fqq->name }}</td>
+                  <td>{{ $fqq->description }}</td>
                   <td class="center">
-                  	<a href="{{ url('/admin/edit-subscription/'. $subscript->id ) }}" class="btn btn-primary btn-mini">Edit</a> 
-                  	<a id="delSub" href="{{ url('/admin/delete-subscription/'. $subscript->id ) }}" class="btn btn-danger btn-mini">Delete</a>
+                  	<a href="{{ url('/admin/edit-faq/'. $fqq->id ) }}" class="btn btn-primary btn-mini">Edit</a> 
+                  	<a id="delFaq" href="{{ url('/admin/delete-faq/'. $fqq->id ) }}" class="btn btn-danger btn-mini">Delete</a>
                   </td>
                 </tr>
                 @endforeach

@@ -4,7 +4,10 @@
 
 <div id="content">
   <div id="content-header">
-    <div id="breadcrumb"> <a href="{{ url('/admin') }}" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a><a href="#" class="current">Subsciption</a> </div>
+    <ul class="breadcrumb">
+        <li><a href="{{ url('/admin') }}">Home</a></li>                    
+        <li class="active">Subsciption</li>
+    </ul>
     <h1>Add New Subsciption</h1>
   </div>
   <div class="container-fluid"><hr>
@@ -31,7 +34,7 @@
               <div class="control-group">
                 <label class="control-label"> Price</label>
                 <div class="controls">
-                  <input type="text" name="subsciption_price" id="subsciption_price">
+                  <input type="text" name="subsciption_price" id="subsciption_price">&nbsp;<span id="errmsg"></span>
                 </div>
               </div>
               <div class="control-group">

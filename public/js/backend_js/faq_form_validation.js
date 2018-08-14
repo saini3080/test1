@@ -27,15 +27,12 @@ $(document).ready(function(){
 	$('select').select2();
 	*/
 	// Form Validation
-    $("#add_subsciption").validate({
+    $("#add_faq").validate({
 		rules:{
-			subsciption_name:{
+			faq_name:{
 				required:true
 			},
-			subsciption_desc:{
-				required:true,
-			},
-			subsciption_price:{
+			faq_desc:{
 				required:true,
 			},
 		},
@@ -50,15 +47,12 @@ $(document).ready(function(){
 		}
 	});
 
-	$("#edit_category").validate({
+	$("#add_faq").validate({
 		rules:{
-			subsciption_name:{
+			faq_name:{
 				required:true
 			},
-			subsciption_desc:{
-				required:true,
-			},
-			subsciption_price:{
+			faq_desc:{
 				required:true,
 			},
 		},
@@ -73,16 +67,6 @@ $(document).ready(function(){
 		}
 	});
 	
-	 $("#subsciption_price").keypress(function (e) {
-	     //if the letter is not digit then display error and don't type anything
-	     if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
-		        //display error message
-		        $("#errmsg").html("Digits Only").show().fadeOut("slow");
-		               return false;
-		    }
-	   });
-
-	 $('table').DataTable();
 	
 	
 	/*$("#number_validate").validate({
@@ -141,8 +125,8 @@ $(document).ready(function(){
 		}
 	});*/
 
-	$("#delSub").click(function(){
-		if(confirm('Are you sure you want to delete this Subsciption'))
+	$("#delFaq").click(function(){
+		if(confirm('Are you sure you want to delete this Faq'))
 		{
 			return true;
 		}
