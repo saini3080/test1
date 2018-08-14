@@ -26,7 +26,7 @@
 <script type="text/javascript" src="{{ asset('admin_asset/js/plugins/moment.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('admin_asset/js/plugins/daterangepicker/daterangepicker.js') }}"></script>
 
-<script type="text/javascript" src="{{ asset('admin_asset/js/settings.js') }}"></script>
+<!-- <script type="text/javascript" src="{{ asset('admin_asset/js/settings.js') }}"></script> -->
 <script type="text/javascript" src="{{ asset('admin_asset/js/plugins.js') }}"></script>
 <script type="text/javascript" src="{{ asset('admin_asset/js/actions.js') }}"></script>
 

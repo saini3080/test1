@@ -16,6 +16,10 @@ Route::get('/', function () {
 });
 
 Route::get('admin', 'admin\adminController@dashboard');
+Route::get('admin/dashboard', 'admin\adminController@dashboard');
+
+Route::get('admin/users', 'admin\usersController@index');
+Route::get('admin/users/{user}', 'admin\usersController@show');
 
 Route::match(['get','post'],'admin/login', 'admin\adminController@login')->middleware('guest');
 

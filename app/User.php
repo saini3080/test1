@@ -12,6 +12,7 @@ class User extends Authenticatable
     const SUPER_USER = 1;
     const USER_AGENT = 2;
     const USER_BUYER = 3;
+    const USER_DEFAULT = 3;
     const USER_DISABLED = 0;
 
     /**

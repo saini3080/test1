@@ -4,6 +4,8 @@ namespace App\Http\Controllers\admin;
 
 use Auth;
 use Session;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Validator;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -25,16 +27,32 @@ class adminController extends Controller
 
     public function login(Request $request)
     {
+
+    	// $this->validate($request, [ 'email' => 'required|email', 'password' => 'required' ]);
+    // ContactUS::create($request->all()); 
     	if($request->isMethod('post')){
-            $data = $request->input();
-             if (Auth::attempt(['email' => $data['email'], 'password' => $data['password'],'role' => '1'])) {
-                
-                return redirect('/admin/');
-            }else{
-                //echo "failed"; die;
-                return redirect('/admin/login')->with('flash_message_error','Invalid Username or Password');
-            }
-        }
+
+			$postData = Input::all();
+			$rules = array(
+				'email' => 'required|email',
+				'password' => 'required',
+			);
+
+			// $validator = Validator::make($postData, $rules, $messages);
+			$validator = Validator::make($postData, $rules);
+
+			if ($validator->fails()){
+				return redirect('/admin/login')->withInput()->withErrors($validator);
+			}else{
+				$data = $request->input();
+				if (Auth::attempt(['email' => $data['email'], 'password' => $data['password'],'role' => '1'])) {
+					return redirect('/admin/');
+				}else{
+					//echo "failed"; die;
+					return redirect('/admin/login')->with('flash_message_error','Invalid Email or Password');
+				}
+			}
+	    }
 
     	return view('admin.login');
     }

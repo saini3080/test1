@@ -11,7 +11,8 @@
         <!-- END META SECTION -->
         
         <!-- CSS INCLUDE -->        
-         <link href="{{ asset('admin_asset/css/theme-default.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <link href="{{ asset('admin_asset/css/theme-default.css') }}" rel="stylesheet">
         <!-- EOF CSS INCLUDE -->                                       
     </head>
     <body>
@@ -37,18 +38,28 @@
 
                     <div class="form-group">
                         <div class="col-md-12">
-                            <input type="text" name="email" class="form-control" placeholder="Email"/>
+                            <input type="text" name="email" class="form-control" value="{{ old('email') }}" placeholder="Email"/>
+                            @if ($errors->has('email'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('email') }}</strong>
+                                </span>
+                            @endif
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-md-12">
                             <input type="password" name="password" class="form-control" placeholder="Password"/>
+                            @if ($errors->has('password'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('password') }}</strong>
+                                </span>
+                            @endif
                         </div>
                     </div>
                     <div class="form-group">
-                        <div class="col-md-6">
+                        <!-- <div class="col-md-6">
                             <a href="#" class="btn btn-link btn-block">Forgot your password?</a>
-                        </div>
+                        </div> -->
                         <div class="col-md-6">
                             <button class="btn btn-info btn-block">Log In</button>
                         </div>
