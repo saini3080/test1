@@ -25,6 +25,7 @@
                         </div>
                     </li>
                     <li class="xn-title">Navigation</li>
+<<<<<<< HEAD
                     <li class="active">
                         <a href="{{ url('/admin/') }}"><span class="fa fa-dashboard"></span> <span class="xn-text">Dashboards</span></a>
                         <!-- <ul>
@@ -37,6 +38,31 @@
                         <a href="{{ url('/admin/users') }}"><span class="fa fa-users"></span> <span class="xn-text">Users</span></a>
                     </li>                    
                     <!-- <li class="xn-openable">
+=======
+                    <li class="xn-openable">
+                        <a href="#"><span class="fa fa-dashboard"></span> <span class="xn-text">Dashboards</span></a>
+                        <ul>
+                            <li class="active"><a href="index.html"><span class="xn-text">Dashboard 1</span></a></li>
+                            <li><a href="dashboard.html"><span class="xn-text">Dashboard 2</span></a></li>
+                            <li><a href="dashboard-dark.html"><span class="xn-text">Dashboard 3</span></a></li>
+                        </ul>
+                    </li>
+                    <li class="xn-openable">
+                        <a href="#"><span class="fa fa-random"></span> <span class="xn-text">Subscription</span></a>
+                        <ul>
+                            <li class="active"><a href="{{ url('/admin/add-subscription') }}"><span class="xn-text">Add Subscription</span></a></li>
+                            <li><a href="{{ url('/admin/view-subscription') }}"><span class="xn-text">View Subscription</span></a></li>
+                        </ul>
+                    </li>  
+                    <li class="xn-openable">
+                        <a href="#"><span class="fa fa-random"></span> <span class="xn-text">Faq</span></a>
+                        <ul>
+                            <li class="active"><a href="{{ url('/admin/add-faq') }}"><span class="xn-text">Add Faq</span></a></li>
+                            <li><a href="{{ url('/admin/view-faq') }}"><span class="xn-text">View Faq</span></a></li>
+                        </ul>
+                    </li>                       
+                    <li class="xn-openable">
+>>>>>>> 5abe51eb87b154b642204fa7ee89a792d5e24d51
                         <a href="#"><span class="fa fa-files-o"></span> <span class="xn-text">Pages</span></a>
                         <ul>
                             <li><a href="pages-gallery.html"><span class="fa fa-image"></span> Gallery</a></li>

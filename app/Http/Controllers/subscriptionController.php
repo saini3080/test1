@@ -8,6 +8,10 @@ use App\Subscription;
 
 class subscriptionController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['is_admin'], ['except' => ['login']]);
+    }
     public function addSubscription(Request $request)
     {
     	if($request->isMethod('post'))
@@ -29,7 +33,7 @@ class subscriptionController extends Controller
     	if($request->isMethod('post'))
     	{
     		$data = $request->all();
-    		Subscription::where(['id'=>$id])->update(['name'=>$data['subsciption_name'],'description'=>$data['subsciption_desc'],'price'=>$data['subsciption_price'],'description'=>$data['subsciption_duration']]);
+    		Subscription::where(['id'=>$id])->update(['name'=>$data['subsciption_name'],'description'=>$data['subsciption_desc'],'price'=>$data['subsciption_price'],'duration'=>$data['subsciption_duration']]);
     		return redirect('/admin/view-subscription')->with('flash_message_success','Subscription update successfully');
     	}
     	$SubscriptionDetails = Subscription::where(['id'=>$id])->first();
