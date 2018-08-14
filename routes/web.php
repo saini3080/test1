@@ -43,4 +43,13 @@ Route::match(['get','post'],'/admin/edit-faq/{id}','FaqController@editFaq');
 Route::match(['get','post'],'/admin/delete-faq/{id}','FaqController@deleteFaq');
 Route::get('/admin/view-faq','FaqController@viewFaq');
 
+/*** Pages ***/
+Route::match(['get','post'],'/admin/add-page','PagesController@addPages');
+Route::match(['get','post'],'/admin/edit-page/{id}','PagesController@editPages');
+Route::match(['get','post'],'/admin/delete-page/{id}','PagesController@deletePages');
+Route::get('/admin/view-page','PagesController@viewPages');
+
+/*** Setting ***/
+Route::match(['get','post'],'/admin/edit-profile','SettingController@editAdminprofile');
+
 

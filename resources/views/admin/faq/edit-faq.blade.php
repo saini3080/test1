@@ -10,7 +10,7 @@
     <h1>Edit Faq</h1>
   </div>
   <div class="container-fluid"><hr>
-    <div class="row-fluid">
+    <div class="col-md-12">
       <div class="span12">
         <div class="widget-box">
           <div class="widget-title"> <span class="icon"> <i class="icon-info-sign"></i> </span>
@@ -18,16 +18,16 @@
           </div>
           <div class="widget-content nopadding">
             <form class="form-horizontal" method="post" action="{{ url('/admin/edit-faq/'.$FaqDetails->id) }}" name="basic_validate" id="add_faq" novalidate="novalidate">{{ csrf_field() }}
-              <div class="control-group">
-                <label class="control-label">Faq Name</label>
-                <div class="controls">
-                  <input type="text" name="faq_name" id="faq_name" value="{{ $FaqDetails->name }}">
+              <div class="form-group row">
+                <label class="col-sm-2 control-label">Faq Name</label>
+                <div class="col-sm-10">
+                  <input type="text" name="faq_name" class="form-control" id="faq_name" value="{{ $FaqDetails->name }}">
                 </div>
               </div>
-              <div class="control-group">
-                <label class="control-label">Description</label>
-                <div class="controls">
-                  <textarea type="text" name="faq_desc" id="faq_desc">{{ $FaqDetails->description }}</textarea>
+              <div class="form-group row">
+                <label class="col-sm-2 control-label">Description</label>
+                <div class="col-sm-10">
+                  <textarea name="faq_desc" id="faq_desc">{{ $FaqDetails->description }}</textarea>
                 </div>
               </div>
               

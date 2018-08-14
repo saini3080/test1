@@ -1,0 +1,36 @@
+#edit_profile .pic
+{
+     margin-top:50px; 
+     width:120px;
+     margin-left:50px;
+     margin-bottom:-60px;
+}
+
+#edit_profile .name
+{
+    position:absolute;
+    padding-left:200px;
+    font-size:30px;
+}
+
+#edit_profile .dropdown
+{
+    position:absolute;
+}
+
+#edit_profile .change
+{
+ position:relative; 
+ bottom:20px;
+ padding:1px;
+ color:white;
+ text-decoration:none;
+}
+
+
+#edit_profile .change:hover
+{
+ text-decoration:none;
+ background-color:black;
+ color:white;
+}

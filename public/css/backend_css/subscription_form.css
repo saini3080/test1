@@ -1132,10 +1132,7 @@ form {
 .form-horizontal .control-group:last-child {
 	border-bottom: 0;
 }
-.form-horizontal .control-label {
-	padding-top: 15px;
-	width: 180px;
-}
+
 .form-horizontal .controls {
 	margin-left: 200px;
 	padding: 10px 0;
@@ -1587,7 +1584,12 @@ div.dataTables_wrapper .ui-widget-header {
 }
 #sidebar .content{ display:none;}
 }
-span#errmsg
+#errmsg , #errmsg1
 {
 	color: #b94a48;
+	margin: 0;
+}
+span.help-inline { color: red; }
+.form-horizontal {
+    padding: 20px;
 }
