@@ -3,7 +3,10 @@
 
 <div id="content">
   <div id="content-header">
-    <div id="breadcrumb"> <a href="{{ url('/admin') }}" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="#" class="current">Subsciption</a> </div>
+    <ul class="breadcrumb">
+        <li><a href="{{ url('/admin') }}">Home</a></li>                    
+        <li class="active">Subsciption</li>
+    </ul>
     <h1>Edit Subsciption</h1>
   </div>
   <div class="container-fluid"><hr>
@@ -14,7 +17,7 @@
             <h5>Subsciption</h5>
           </div>
           <div class="widget-content nopadding">
-            <form class="form-horizontal" method="post" action="{{ url('/admin/edit-subscription/'.$SubscriptionDetails->id) }}" name="basic_validate" id="add_category" novalidate="novalidate">{{ csrf_field() }}
+            <form class="form-horizontal" method="post" action="{{ url('/admin/edit-subscription/'.$SubscriptionDetails->id) }}" name="basic_validate" id="edit_category" novalidate="novalidate">{{ csrf_field() }}
               <div class="control-group">
                 <label class="control-label">Subsciption Name</label>
                 <div class="controls">
@@ -30,7 +33,7 @@
               <div class="control-group">
                 <label class="control-label">Price</label>
                 <div class="controls">
-                  <input type="text" name="subsciption_price" id="subsciption_price" value="{{ $SubscriptionDetails->price }}">
+                  <input type="text" name="subsciption_price" id="subsciption_price" value="{{ $SubscriptionDetails->price }}">&nbsp;<span id="errmsg"></span>
                 </div>
               </div>
               <div class="control-group">

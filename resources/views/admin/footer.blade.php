@@ -30,7 +30,12 @@
 <script type="text/javascript" src="{{ asset('admin_asset/js/plugins.js') }}"></script>
 <script type="text/javascript" src="{{ asset('admin_asset/js/actions.js') }}"></script>
 
+<script src="{{ asset('js/backend_js/jquery.uniform.js') }}"></script>
+<script src="{{ asset('js/backend_js/jquery.validate.js') }}"></script>
 <script type="text/javascript" src="{{ asset('admin_asset/js/demo_dashboard.js') }}"></script>
+<script src="{{ asset('js/backend_js/subscription_form_validation.js') }}"></script>
+<script src="{{ asset('js/backend_js/faq_form_validation.js') }}"></script>
+<script src="{{ asset('js/backend_js/jquery.dataTables.min.js') }}"></script> 
 
 @yield('scripts')
 

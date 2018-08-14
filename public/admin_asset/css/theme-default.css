@@ -5631,7 +5631,7 @@ blockquote.pull-right {
 .table > tbody > tr > td,
 .table > tfoot > tr > td {
   border-color: transparent;
-  padding: 16px 20px;
+  /*padding: 16px 20px;*/
   background: #F0F4F9;
   color: #656C78;
   font-size: 13px;

@@ -12,7 +12,10 @@
 
     <!-- Styles -->
     <!-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> -->
+    <link rel="stylesheet" href="{{ asset('css/backend_css/bootstrap.min.css') }}" />
     <link href="{{ asset('admin_asset/css/theme-default.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/backend_css/subscription_form.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/backend_css/jquery.dataTables.css') }}" />
 </head>
 
 <?php 

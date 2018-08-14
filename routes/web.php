@@ -33,3 +33,10 @@ Route::match(['get','post'],'/admin/delete-subscription/{id}','subscriptionContr
 Route::get('/admin/view-subscription','subscriptionController@viewSubscription');
 
 
+/*** FAQ ***/
+Route::match(['get','post'],'/admin/add-faq','FaqController@addFaq');
+Route::match(['get','post'],'/admin/edit-faq/{id}','FaqController@editFaq');
+Route::match(['get','post'],'/admin/delete-faq/{id}','FaqController@deleteFaq');
+Route::get('/admin/view-faq','FaqController@viewFaq');
+
+
