@@ -23,7 +23,7 @@
                 <div class="login-logo"></div>
                 <div class="login-body">
                     @if(Session::has('flash_message_error'))
-                        <div class="alert alert-error alert-block">
+                        <div class="alert alert-danger alert-block">
                             <button type="button" class="close" data-dismiss="alert">×</button>
                             <strong>{!! session('flash_message_error') !!}</strong>
                         </div>

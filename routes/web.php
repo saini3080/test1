@@ -19,7 +19,10 @@ Route::get('admin', 'admin\adminController@dashboard');
 Route::get('admin/dashboard', 'admin\adminController@dashboard');
 
 Route::get('admin/users', 'admin\usersController@index');
+Route::match(['get','post'],'admin/users/create', 'admin\usersController@create');
 Route::get('admin/users/{user}', 'admin\usersController@show');
+Route::match(['get','post'],'admin/users/{user}/update', 'admin\usersController@update');
+Route::get('admin/users/{user}/delete', 'admin\usersController@delete');
 
 Route::match(['get','post'],'admin/login', 'admin\adminController@login')->middleware('guest');
 

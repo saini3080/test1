@@ -26,6 +26,8 @@ https://laracasts.com/discuss/channels/general-discussion/create-middleware-to-a
 https://laracasts.com/discuss/channels/laravel/user-admin-authentication
 https://ysk-override.com/Multi-Auth-in-Laravel-54-Login-20170203/
 https://laravel.com/docs/5.6/middleware
+
+https://scotch.io/tutorials/password-verification-using-laravel-form-request
 */
 
 ?>

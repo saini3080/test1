@@ -1,26 +1,11 @@
 @extends('admin.layouts.app')
 
 @section('content')
-<!-- <div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
-
-                <div class="panel-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    You are logged in! Admin part
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
-
+<style type="text/css">
+	.dataTables_filter{
+		top: 0; 
+	}
+</style>
 <!-- START BREADCRUMB -->
 <ul class="breadcrumb">
     <li><a href="#">Home</a></li>                    
@@ -33,19 +18,44 @@
 <!-- START WIDGETS -->                    
 <div class="row">
 	<div class="col-md-12">
+		<h2>Listing Users <a href="{{url('admin/users/create')}}"><button>Add New</button></a></h2>
+
+		@if(Session::has('flash_message_error'))
+			<div class="alert alert-danger alert-block">
+			<button type="button" class="close" data-dismiss="alert">×</button>
+			<strong>{!! session('flash_message_error') !!}</strong>
+			</div>
+		@endif
+
+		@if(Session::has('flash_message_success'))
+			<div class="alert alert-success alert-block">
+			<button type="button" class="close" data-dismiss="alert">×</button>
+			<strong>{!! session('flash_message_success') !!}</strong>
+			</div>
+		@endif
+
+	</div>
+</div>
+<div class="clearfix"></div>
+<div class="row">
+
+	<div class="col-md-12">
+
 		@if(count($users))
-			<h2>Listing Users</h2>
 			<div class="table-responsive">
 			<table class="table table-striped">
 				<thead>
+					<th>#</th>
 					<th>Name</th>
 					<th>Email</th>
 					<th>Role</th>
 					<th>Action</th>
 				</thead>
 				<tbody>
+					<?php $i=1; ?>
 					@foreach($users as $user)
 						<tr>
+							<td>{{$i++}}</td>
 							<td>{{$user->name}}</td>
 							<td>{{$user->email}}</td>
 							<td>
@@ -58,8 +68,8 @@
 								@endif
 							</td>
 							<td>
-								<button>Edit</button>
-								<button>Delete</button>
+								<a href='{{ url("admin/users/{$user->id}/update") }}'><button>Edit</button></a>
+								<a href='{{ url("admin/users/{$user->id}/delete") }}' onclick="return confirm('Are you sure to delete this user?')"><button>Delete</button></a>
 							</td>
 						</tr>
 					@endforeach
