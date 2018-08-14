@@ -6,14 +6,14 @@
   <div id="content-header">
     <ul class="breadcrumb">
         <li><a href="{{ url('/admin') }}">Home</a></li>                    
-        <li class="active">FAQ</li>
+        <li class="active">Pages</li>
     </ul>
     <div class="page-content-wrap">
 
     <!-- START WIDGETS -->                    
     <div class="row">
       <div class="col-md-12">
-        <h2>Listing FAQ</h2>
+        <h2>Listing Pages</h2>
         @if(Session::has('flash_message_error'))    
             <div class="alert alert-danger alert-block">
                 <button type="button" class="close" data-dismiss="alert">×</button> 
@@ -25,30 +25,32 @@
                 <button type="button" class="close" data-dismiss="alert">×</button> 
                     <strong>{!! session('flash_message_success') !!}</strong>
             </div>
-        @endif 
+        @endif
         <table class="table table-bordered data-table">
-              <thead>
-                <tr>
-                  <th>Faq ID</th>
-                  <th>Faq Name</th>
-                  <th>Faq Description</th>
-                  <th>Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                @foreach( $Faq as $fqq )
-                <tr class="gradeX">
-                  <td>{{ $fqq->id }}</td>
-                  <td>{{ $fqq->name }}</td>
-                  <td>{{ $fqq->description }}</td>
-                  <td class="center">
-                    <a href="{{ url('/admin/edit-faq/'. $fqq->id ) }}" class="btn btn-primary btn-mini">Edit</a> 
-                    <a id="delFaq" href="{{ url('/admin/delete-faq/'. $fqq->id ) }}" class="btn btn-danger btn-mini">Delete</a>
-                  </td>
-                </tr>
-                @endforeach
-             </tbody>
-          </table>
+          <thead>
+            <tr>
+              <th>Page ID</th>
+              <th>Page Name</th>
+              <th>Page Content</th>
+              <th>Pages Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            @foreach( $Pages as $page )
+            <tr class="gradeX">
+              <td>{{ $page->id }}</td>
+              <td>{{ $page->name }}</td>
+              <td>{{ $page->content }}</td>
+              <td>{{ ($page->status == 1)?"Active":"Inactive" }}</td>
+              <td class="center">
+                <a href="{{ url('/admin/edit-page/'. $page->id ) }}" class="btn btn-primary btn-mini">Edit</a> 
+                <a id="delSub" href="{{ url('/admin/delete-page/'. $page->id ) }}" class="btn btn-danger btn-mini">Delete</a>
+              </td>
+            </tr>
+            @endforeach
+         </tbody>
+        </table>
       </div>
     </div>
 </div>
