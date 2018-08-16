@@ -71,6 +71,7 @@
                     <li class="xn-openable">
                         <a href="#"><span class="fa fa-cog"></span> <span class="xn-text">Setting</span></a>
                         <ul>
+                            <li class="active"><a href="{{ url('/admin/general') }}"><span class="xn-text">General</span></a></li>
                             <li class="active"><a href="{{ url('/admin/edit-profile') }}"><span class="xn-text">Edit Profile</span></a></li>
                             
                         </ul>
