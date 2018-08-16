@@ -7,6 +7,9 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\User;
 use App\general_setting;
+use Hash;
+use File;
+
 
 class SettingController extends Controller
 {
@@ -16,42 +19,51 @@ class SettingController extends Controller
     }
     public function editAdminprofile(Request $request)
     {
-    	$id = 1;
-        if($request->isMethod('post'))
+        $getData = DB::table('users')->first();
+    	if($request->isMethod('post'))
     	{
     		$data = $request->all();
             $postData = Input::all();
-    		$getData = DB::table('users')->where('id', $id)->first();
+    		
             if($data['password'] != '')
             {
-                if($data['email'] != $getData->email)
+                if(Hash::check($data['password'], $getData->password))
                 {
-                    $rules = array(
-                        'email' => 'required|string|email|max:255|unique:users',
-                        'new_password' => 'required|string|min:6',
-                        'confirm_password' => 'required|string|min:6|same:new_password'
+                    if($data['email'] != $getData->email)
+                    {
+                        $rules = array(
+                            'email' => 'required|string|email|max:255|unique:users',
+                            'new_password' => 'required|string|min:6',
+                            'confirm_password' => 'required|string|min:6|same:new_password'
+                        );
+                    }
+                    else
+                    {
+                        $rules = array(
+                           // 'email' => 'required|string|email|max:255|unique:users',
+                            'new_password' => 'required|string|min:6',
+                            'confirm_password' => 'required|string|min:6|same:new_password'
+                        );
+                    }
+                    $messages = array(
+                    'confirm_password.same' => 'password and confirm password not match'
                     );
+
+                    $validator = Validator::make($postData, $rules, $messages);
+                    if ($validator->fails())
+                    {
+                        return redirect('/admin/edit-profile')->withInput()->withErrors($validator);
+                    }
+                    else
+                    {
+                        $psswd = bcrypt($data['new_password']);
+                        User::where(['id'=>$getData->id])->update(['name'=>$getData->name,'email'=>$data['email'],'password'=>$psswd]);
+                        return redirect('/admin/edit-profile')->with('flash_message_success','Profile update successfully');
+                    }
                 }
                 else
                 {
-                    $rules = array(
-                       // 'email' => 'required|string|email|max:255|unique:users',
-                        'new_password' => 'required|string|min:6',
-                        'confirm_password' => 'required|string|min:6|same:new_password'
-                    );
-                }
-                $messages = array(
-                'confirm_password.same' => 'password and confirm password not match'
-                );
-
-                $validator = Validator::make($postData, $rules, $messages);
-                 if ($validator->fails()){
-                    return redirect('/admin/edit-profile')->withInput()->withErrors($validator);
-                }else
-                {
-                    $psswd = bcrypt($data['new_password']);
-                    User::where(['id'=>$id])->update(['name'=>$getData->name,'email'=>$data['email'],'password'=>$psswd]);
-                    return redirect('/admin/edit-profile')->with('flash_message_success','Profile update successfully');
+                    return redirect('/admin/edit-profile')->with('flash_message_error','Incorrect old password');
                 }
             }
             else
@@ -74,12 +86,12 @@ class SettingController extends Controller
                     {
                         $psswd = bcrypt($data['new_password']);
                     }
-                    User::where(['id'=>$id])->update(['name'=>$getData->name,'email'=>$data['email'],'password'=>$psswd]);
+                    User::where(['id'=>$getData->id])->update(['name'=>$getData->name,'email'=>$data['email'],'password'=>$psswd]);
                     return redirect('/admin/edit-profile')->with('flash_message_success','Profile update successfully');
                 }
             }
         }
-    	$AdminDetails = User::where(['id'=>$id])->first();
+    	$AdminDetails = User::where(['id'=>$getData->id])->first();
     	return view('admin.setting.edit-profile')->with(compact('AdminDetails'));
     }
 
@@ -92,24 +104,17 @@ class SettingController extends Controller
             $postData = Input::all();
             if($getData)
             {
-                if ($request->hasFile('file')) 
+                $rules = array(
+                        'site_title' => 'required|string',
+                    );
+                if ($request->hasFile('file_image')) 
                 {
-                    $image = $request->file('file');
-                    $path = public_path(). '/images/';
-                    $filename = time() . '.' . $image->getClientOriginalExtension();
-                    $image->move($path, $filename);
+                    $rules['file_image'] = 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048';
                 }
                 else
                 {
-                    $filename = '';
+                    $filename = $getData->logo;
                 }
-                
-                
-
-                $rules = array(
-                    'site_title' => 'required|string',
-                    'file' => 'required',
-                );
                 $validator = Validator::make($postData, $rules);
 
                 if ($validator->fails())
@@ -118,6 +123,19 @@ class SettingController extends Controller
                 }
                 else
                 {
+
+                    if ($request->hasFile('file_image')) 
+                    {
+                        File::delete('images/' . $getData->logo);
+                        $image = $request->file('file_image');
+                        $path = public_path(). '/images/';
+                        if (!file_exists($path)) 
+                        {
+                            File::makeDirectory($path, $mode = 0777, true, true);
+                        }   
+                        $filename = time() . '.' . $image->getClientOriginalExtension();
+                        $image->move($path, $filename);
+                    }
                     general_setting::where(['id'=>$getData->id])->update([
                         'title'=>$_POST['site_title'],
                         'logo'=>$filename,
@@ -166,7 +184,7 @@ class SettingController extends Controller
 
                 $rules = array(
                     'site_title' => 'required|string',
-                    'file' => 'required',
+                    'file_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
                 );
                 $validator = Validator::make($postData, $rules);
 
@@ -178,10 +196,14 @@ class SettingController extends Controller
                 {
                     
                     //echo "<pre>";print_r($postData);die('jj');
-                    if ($request->hasFile('file')) 
+                    if ($request->hasFile('file_image')) 
                     {
-                        $image = $request->file('file');
+                        $image = $request->file('file_image');
                         $path = public_path(). '/images/';
+                        if (!file_exists($path)) 
+                        {
+                            File::makeDirectory($path, $mode = 0777, true, true);
+                        }  
                         $filename = time() . '.' . $image->getClientOriginalExtension();
                         $image->move($path, $filename);
 
