@@ -52,20 +52,22 @@
 					                </div>
 					            </div>
 					            @if(!empty($getData))
-					            <div class="form-group row">
-					                <label class="col-sm-2 control-label">Uploaded Logo Image</label>
-					                <div class="col-sm-10">
-					                	<img width="200" src="{{ url('').'/images/'.$getData->logo }}">
-					                </div>
-					            </div>
+					            	@if($getData->logo)
+							            <div class="form-group row">
+							                <label class="col-sm-2 control-label">Uploaded Logo Image</label>
+							                <div class="col-sm-10">
+							                	<img width="200" src="{{ url('').'/images/'.$getData->logo }}">
+							                </div>
+							            </div>
+							        @endif    
 					            @endif
 					            <div class="form-group row">
 					                <label class="col-sm-2 control-label">Site Logo</label>
 					                <div class="col-sm-10">
-					                	<input type="file" name="file" id="file" class="form-control">
-					                	@if ($errors->has('file'))
+					                	<input type="file" name="file_image" id="file_image" class="form-control">
+					                	@if ($errors->has('file_image'))
 				                            <span class="help-inline">
-				                                <strong>{{ $errors->first('file') }}</strong>
+				                                <strong>{{ $errors->first('file_image') }}</strong>
 				                            </span>
 				                        @endif
 					                </div>
