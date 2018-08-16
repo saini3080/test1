@@ -18,11 +18,27 @@ Route::get('/', function () {
 Route::get('admin', 'admin\adminController@dashboard');
 Route::get('admin/dashboard', 'admin\adminController@dashboard');
 
-Route::get('admin/users', 'admin\usersController@index');
+
 Route::match(['get','post'],'admin/users/create', 'admin\usersController@create');
-Route::get('admin/users/{user}', 'admin\usersController@show');
-Route::match(['get','post'],'admin/users/{user}/update', 'admin\usersController@update');
-Route::get('admin/users/{user}/delete', 'admin\usersController@delete');
+
+// adminagents
+Route::get('admin/adminagents', 'admin\usersController@AdminAgentList');
+Route::match(['get','post'],'admin/adminagents/{user}/update', 'admin\usersController@adminagentsupdate');
+// Route::get('admin/adminagents/{user}', 'admin\usersController@adminagentsshow');
+Route::get('admin/adminagents/{user}/delete', 'admin\usersController@adminagentsdelete');
+
+// simpleagents
+Route::get('admin/simpleagents', 'admin\usersController@AgentList');
+Route::match(['get','post'],'admin/simpleagents/{user}/update', 'admin\usersController@simpleagentsupdate');
+// Route::get('admin/simpleagents/{user}', 'admin\usersController@simpleagentsshow');
+Route::get('admin/simpleagents/{user}/delete', 'admin\usersController@simpleagentsdelete');
+
+// customers
+Route::get('admin/customers', 'admin\usersController@CustomerList');
+Route::match(['get','post'],'admin/customers/{user}/update', 'admin\usersController@customersupdate');
+// Route::get('admin/customers/{user}', 'admin\usersController@customersshow');
+Route::get('admin/customers/{user}/delete', 'admin\usersController@customersdelete');
+
 
 Route::match(['get','post'],'admin/login', 'admin\adminController@login')->middleware('guest');
 

@@ -34,19 +34,18 @@
                             <li><a href="dashboard-dark.html"><span class="xn-text">Dashboard 3</span></a></li>
                         </ul> -->
                     </li>
-                    <li>
+                    <!-- <li>
                         <a href="{{ url('/admin/users') }}"><span class="fa fa-users"></span> <span class="xn-text">Users</span></a>
-                    </li>                    
-                    <!-- <li class="xn-openable">
-=======
+                    </li> -->
                     <li class="xn-openable">
-                        <a href="#"><span class="fa fa-dashboard"></span> <span class="xn-text">Dashboards</span></a>
+                        <a href="#"><span class="fa fa-users"></span> <span class="xn-text">Users</span></a>
                         <ul>
-                            <li class="active"><a href="index.html"><span class="xn-text">Dashboard 1</span></a></li>
-                            <li><a href="dashboard.html"><span class="xn-text">Dashboard 2</span></a></li>
-                            <li><a href="dashboard-dark.html"><span class="xn-text">Dashboard 3</span></a></li>
+                            <li class="active"><a href="{{ url('/admin/adminagents') }}"><span class="xn-text">Admin Agent</span></a></li>
+                            <li><a href="{{ url('/admin/simpleagents') }}"><span class="xn-text">Agent</span></a></li>
+                            <li><a href="{{ url('/admin/customers') }}"><span class="xn-text">Customer</span></a></li>
+                            <li class="active"><a href="{{ url('/admin/users/create') }}"><span class="xn-text">Add New</span></a></li>
                         </ul>
-                    </li>-->
+                    </li>
                     <li class="xn-openable">
                         <a href="#"><span class="fa fa-random"></span> <span class="xn-text">Subscription</span></a>
                         <ul>

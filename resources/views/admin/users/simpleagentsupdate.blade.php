@@ -11,28 +11,6 @@
 
 <div class="page-content-wrap">
 
-<div class="row">
-    <div class="col-md-12">
-        <h2>Listing Users <!-- <a href="{{url('admin/users/create')}}"><button>Add New</button></a> --></h2>
-
-        @if(Session::has('flash_message_error'))
-            <div class="alert alert-danger alert-block">
-            <button type="button" class="close" data-dismiss="alert">×</button>
-            <strong>{!! session('flash_message_error') !!}</strong>
-            </div>
-        @endif
-
-        @if(Session::has('flash_message_success'))
-            <div class="alert alert-success alert-block">
-            <button type="button" class="close" data-dismiss="alert">×</button>
-            <strong>{!! session('flash_message_success') !!}</strong>
-            </div>
-        @endif
-
-    </div>
-</div>
-<div class="clearfix"></div>
-
 <!-- START WIDGETS -->                    
 <div class="row">
     <div class="col-md-12">
@@ -40,12 +18,12 @@
             <div class="panel-heading">Create User</div>
             <div class="panel-body">
 
-            <form  action="{{ url('admin/users/create') }}" class="form-horizontal" method="post" role="form">
+            <form  action='{{ url("admin/simpleagents/{$user->id}/update") }}'' class="form-horizontal" method="post" role="form">
                 {{ csrf_field() }}
 
                 <div class="form-group">
                     <div class="col-md-12">
-                        <input type="text" name="uname" class="form-control" value="{{ old('uname') }}" placeholder="Name"/>
+                        <input type="text" name="uname" class="form-control" value="{{ old('uname',$user->name ) }}" placeholder="Name"/>
                         @if ($errors->has('uname'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('uname') }}</strong>
@@ -55,7 +33,7 @@
                 </div>
                 <div class="form-group">
                     <div class="col-md-12">
-                        <input type="text" name="email" class="form-control" value="{{ old('email') }}" placeholder="Email"/>
+                        <input type="text" name="email" class="form-control" value="{{ old('email',$user->email ) }}" placeholder="Email"/>
                         @if ($errors->has('email'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('email') }}</strong>
@@ -66,9 +44,9 @@
                 <div class="form-group">
                     <div class="col-md-12">
                         <select type="text" name="role" class="form-control">
-                            <option value="2" @if(old("role") == "2") selected="selected" @endif >Admin Agent</option>
-                            <option value="3" @if(old("role") == "3") selected="selected" @endif >Simple Agent</option>
-                            <option value="4" @if(old("role") !== "2" && old("role") !== "3") selected="selected" @endif >Customer</option>
+                            <option value="2" @if(old("role",$user->role) == "2") selected="selected" @endif >Admin Agent</option>
+                            <option value="3" @if(old("role",$user->role) == "3") selected="selected" @endif >Simple Agent</option>
+                            <option value="4" @if(old("role",$user->role) !== "2" && old("role",$user->role) !== "3") selected="selected" @endif >Simple Agent</option>
                         </select>
                         @if ($errors->has('role'))
                             <span class="help-block">
@@ -101,9 +79,9 @@
                     <div class="col-md-6">
                         <button class="btn btn-info btn-block">Create</button>
                     </div>
-                   <!--  <div class="col-md-6">
-                       <a href="{{ url('admin/users') }}"><button type="button" class="btn btn-primary btn-block">Cancel</button></a>
-                    </div> -->
+                    <div class="col-md-6">
+                        <a href="{{ url('admin/simpleagents') }}"><button type="button" class="btn btn-primary btn-block">Cancel</button></a>
+                    </div>
                 </div>
             </form>
         </div>
