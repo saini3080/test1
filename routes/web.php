@@ -70,5 +70,6 @@ Route::get('/admin/view-page','PagesController@viewPages');
 
 /*** Setting ***/
 Route::match(['get','post'],'/admin/edit-profile','SettingController@editAdminprofile');
+Route::match(['get','post'],'/admin/general','SettingController@generalSetting');
 
 
