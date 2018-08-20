@@ -6,14 +6,14 @@
   <div id="content-header">
     <ul class="breadcrumb">
         <li><a href="{{ url('/admin') }}">Home</a></li>                    
-        <li class="active">Subsciption</li>
+        <li class="active">Trasactions</li>
     </ul>
     <div class="page-content-wrap">
 
     <!-- START WIDGETS -->                    
     <div class="row">
       <div class="col-md-12">
-        <h2>Listing Subsciption</h2>
+        <h2>Listing Trasactions</h2>
         @if(Session::has('flash_message_error'))    
             <div class="alert alert-danger alert-block">
                 <button type="button" class="close" data-dismiss="alert">×</button> 
@@ -29,27 +29,26 @@
         <table class="table table-bordered data-table">
           <thead>
             <tr>
-              <th>Subsciption ID</th>
-              <th>Subsciption Name</th>
-              <th>Subsciption Description</th>
-              <th>Subsciption Price</th>
-              <th>Subsciption Agents</th>
-              <th>Subsciption Duration</th>
+              <th>Trasactions ID</th>
+              <th>Trasactions Uid</th>
+              <th>Trasactions Amount</th>
+              <th>Payment Status</th>
+              <th>Trasactions Start</th>
+              <th>Trasactions Expiry</th>
               <th>Actions</th>
             </tr>
           </thead>
           <tbody>
-            @foreach( $Subscription as $subscript )
+            @foreach( $Trasactions as $trans )
             <tr class="gradeX">
-              <td>{{ $subscript->id }}</td>
-              <td>{{ $subscript->name }}</td>
-              <td>{{ $subscript->description }}</td>
-              <td>{{ $subscript->price }}</td>
-              <td>{{ $subscript->agent }}</td>
-              <td>{{ $subscript->duration }}</td>
+              <td>{{ $trans->id }}</td>
+              <td>{{ $trans->user_id }}</td>
+              <td>{{ $trans->amount_paid }}</td>
+              <td>{{ $trans->payment_status }}</td>
+              <td>{{ $trans->plan_start }}</td>
+              <td>{{ $trans->plan_expiry }}</td>
               <td class="center">
-                <a href="{{ url('/admin/edit-subscription/'. $subscript->id ) }}" class="btn btn-primary btn-mini">Edit</a> 
-                <a href="{{ url('/admin/delete-subscription/'. $subscript->id ) }}" class="btn btn-danger btn-mini" onclick="return confirm('Are you sure to delete this Subsciption?')">Delete</a>
+                 <a href="{{ url('/admin/view-transaction-one/'. $trans->id ) }}" class="btn btn-primary btn-mini">View</a> 
               </td>
             </tr>
             @endforeach

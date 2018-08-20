@@ -8,9 +8,11 @@
         <li><a href="{{ url('/admin') }}">Home</a></li>                    
         <li class="active">Pages</li>
     </ul>
-    <h1>Add New Pages</h1>
+    
   </div>
-  <div class="container-fluid"><hr>
+
+  <div class="container-fluid">
+    <h1>Add New Pages</h1>
     <div class="col-md-12">
       <div class="span12">
         <div class="widget-box">
@@ -29,6 +31,18 @@
                 <label class="col-sm-2 control-label"> Content</label>
                 <div class="col-sm-10">
                   <textarea name="page_content" id="page_content" class="form-control"></textarea>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-sm-2 control-label"> Meta key</label>
+                <div class="col-sm-10">
+                  <input type="text" name="meta_key" id="meta_key"  class="form-control">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-sm-2 control-label"> Meta Value</label>
+                <div class="col-sm-10">
+                  <input type="text" name="meta_value" id="meta_value"  class="form-control">
                 </div>
               </div>
               <div class="form-group row">

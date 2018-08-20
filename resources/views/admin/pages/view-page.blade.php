@@ -45,7 +45,7 @@
               <td>{{ ($page->status == 1)?"Active":"Inactive" }}</td>
               <td class="center">
                 <a href="{{ url('/admin/edit-page/'. $page->id ) }}" class="btn btn-primary btn-mini">Edit</a> 
-                <a id="delSub" href="{{ url('/admin/delete-page/'. $page->id ) }}" class="btn btn-danger btn-mini">Delete</a>
+                <a href="{{ url('/admin/delete-page/'. $page->id ) }}" class="btn btn-danger btn-mini" onclick="return confirm('Are you sure to delete this page?')">Delete</a>
               </td>
             </tr>
             @endforeach
