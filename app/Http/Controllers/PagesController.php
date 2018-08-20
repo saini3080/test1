@@ -28,7 +28,9 @@ class PagesController extends Controller
 			$pages->name = $data['page_name'];
     		$pages->content = $data['page_content'];
     		$pages->slug = $slug;
-    		$pages->status = $data['page_status'];
+            $pages->status = $data['page_status'];
+            $pages->meta_key = ($data['meta_key'])?$data['meta_key']:'';
+    		$pages->meta_value = ($data['meta_value'])?$data['meta_value']:'';
             $pages->save();
     		return redirect('/admin/view-page')->with('flash_message_success','Page added successfully');
     	}
@@ -47,7 +49,14 @@ class PagesController extends Controller
                 $slug = $slug . '_' . rand(1000,100000);
             }
             
-    		Pages::where(['id'=>$id])->update(['name'=>$data['page_name'],'content'=>$data['page_content'],'slug'=>$slug,'status'=>$data['page_status']]);
+    		Pages::where(['id'=>$id])->update([
+                'name'=>$data['page_name'],
+                'content'=>$data['page_content'],
+                'slug'=>$slug,
+                'meta_key'=>$data['meta_key'],
+                'meta_value'=>$data['meta_value'],
+                'status'=>$data['page_status']
+            ]);
     		return redirect('/admin/view-page')->with('flash_message_success','Page update successfully');
     	}
     	$PageDetails = Pages::where(['id'=>$id])->first();

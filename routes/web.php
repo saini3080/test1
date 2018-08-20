@@ -72,4 +72,7 @@ Route::get('/admin/view-page','PagesController@viewPages');
 Route::match(['get','post'],'/admin/edit-profile','SettingController@editAdminprofile');
 Route::match(['get','post'],'/admin/general','SettingController@generalSetting');
 
+/*** Transactions ***/
+Route::get('/admin/view-transaction','TrasactionsController@viewTrasactions');
+Route::match(['get','post'],'/admin/view-transaction-one/{id}','TrasactionsController@viewTrasactionsOne');
 

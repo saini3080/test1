@@ -43,7 +43,7 @@
                 </div>
               </div>
               <div class="form-group row">
-                <label class="col-sm-2 control-label"> Duration (Year)</label>
+                <label class="col-sm-2 control-label"> Duration (Month)</label>
                 <div class="col-sm-10">
                   <select name="subsciption_duration" id="subsciption_duration" class="form-control">
                     <option {{ ($SubscriptionDetails->duration  == 1)?'selected="selected"' : ''}} value="1">1 </option>
