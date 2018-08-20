@@ -43,7 +43,7 @@
                   <td>{{ $fqq->description }}</td>
                   <td class="center">
                     <a href="{{ url('/admin/edit-faq/'. $fqq->id ) }}" class="btn btn-primary btn-mini">Edit</a> 
-                    <a id="delFaq" href="{{ url('/admin/delete-faq/'. $fqq->id ) }}" class="btn btn-danger btn-mini">Delete</a>
+                    <a href="{{ url('/admin/delete-faq/'. $fqq->id ) }}" class="btn btn-danger btn-mini" onclick="return confirm('Are you sure to delete this faq?')">Delete</a>
                   </td>
                 </tr>
                 @endforeach

@@ -31,14 +31,14 @@
 			<div class="row well">
 				<div class="col-md-12">
 			        
-					<ul class="nav nav-tabs" style="margin-top: 0;">
+					<ul class="nav nav-tabs" id="myTab" style="margin-top: 0;">
 						<li class="active" ><a data-toggle="tab" href="#site">Site Detail</a></li>
 						<li><a data-toggle="tab" href="#admin">Admin Address</a></li>
 						<li><a data-toggle="tab" href="#smtp">SMTP Details</a></li>
 						<li><a data-toggle="tab" href="#contactus">Contact Us</a></li>
 					</ul>
 					<div class="tab-content">
-					    <div id="site" class="tab-pane fade in active">
+					    <div id="site" class="tab-pane active">
 							<form class="form-horizontal" method="post" action="{{ url('/admin/general') }}" name="basic_validate" id="site-form" novalidate="novalidate" enctype="multipart/form-data">{{ csrf_field() }}
 					            <div class="form-group row">
 					                <label class="col-sm-2 control-label">Site Title</label>
@@ -78,8 +78,8 @@
 					            </div>
 					        </form>
 					    </div>
-					    <div id="admin" class="tab-pane fade">
-					    	<form class="form-horizontal" method="post" action="{{ url('/admin/general') }}" name="basic_validate" id="admin-form" novalidate="novalidate">{{ csrf_field() }}
+					    <div id="admin" class="tab-pane">
+					    	<form class="form-horizontal" method="post" action="{{ url('/admin/general') }}#admin" name="basic_validate" id="admin-form" novalidate="novalidate">{{ csrf_field() }}
 					            <div class="form-group row">
 					                <label class="col-sm-2 control-label">Email</label>
 					                <div class="col-sm-10">
@@ -163,8 +163,8 @@
 					            </div>
 					        </form>
 					    </div>
-					    <div id="smtp" class="tab-pane fade">
-					   		<form class="form-horizontal" method="post" action="{{ url('/admin/general') }}" name="basic_validate" id="smtp-form" novalidate="novalidate">{{ csrf_field() }}
+					    <div id="smtp" class="tab-pane">
+					   		<form class="form-horizontal" method="post" action="{{ url('/admin/general') }}#smtp" name="basic_validate" id="smtp-form" novalidate="novalidate">{{ csrf_field() }}
 					            <div class="form-group row">
 					                <label class="col-sm-2 control-label">SMTP Host</label>
 					                <div class="col-sm-10">
@@ -237,8 +237,8 @@
 					            </div>
 					        </form>
 					    </div>
-					    <div id="contactus" class="tab-pane fade">
-					    	<form class="form-horizontal" method="post" action="{{ url('/admin/general') }}" name="basic_validate" id="smtp-form" novalidate="novalidate">{{ csrf_field() }}
+					    <div id="contactus" class="tab-pane">
+					    	<form class="form-horizontal" method="post" action="{{ url('/admin/general') }}#contactus" name="basic_validate" id="smtp-form" novalidate="novalidate">{{ csrf_field() }}
 					            <div class="form-group row">
 					                <label class="col-sm-2 control-label">Facebook App ID</label>
 					                <div class="col-sm-10">
@@ -299,3 +299,27 @@
 </div>
 
 @endsection
+
+@section('scripts')
+
+<script type="text/javascript">
+
+	$('#myTab a').click(function(e) {
+	  e.preventDefault();
+	  $(this).tab('show');
+	});
+
+	// store the currently selected tab in the hash value
+	$("ul.nav-tabs > li > a").on("shown.bs.tab", function(e) {
+	  var id = $(e.target).attr("href").substr(1);
+	  window.location.hash = id;
+	});
+
+	// on load of the page: switch to the currently selected tab
+	var hash = window.location.hash;
+	$('#myTab a[href="' + hash + '"]').tab('show');
+
+</script>
+
+@endsection
+
