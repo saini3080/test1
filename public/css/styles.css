@@ -1,0 +1,68 @@
+.navbar-static-top{
+	margin-bottom: 0;
+	border-bottom: 0;
+	background: #efeff0;
+}
+
+.nav-header{
+	border:0;
+	padding: 30px 0;
+	background: #ffffff;
+	margin-bottom: 0;
+}
+
+.jumbotron{
+	margin: 0;
+	padding: 0;
+}
+
+.jumbotron .banner-bottom{
+	background:#4a84ca;
+	color:#ffffff;
+}
+
+footer {
+  background-color: #151515;
+  color: white;
+  padding: 15px;
+}
+
+.footer-socials{
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.tx-copy{
+	padding: 2px;
+}
+
+.navbar-static-top .navbar-right li{
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.nav-header a{
+	color: #000 !important; 
+}
+
+.fa-topbar{
+	color: #1b477f;
+}
+
+.list-business-btn{
+	border: 1px solid #777;
+}
+
+.nav-header .find-agent-btn{
+	background: #1b477f;
+	border-radius: 25px;
+	color: #ffffff !important;
+}
+
+@media (min-width: 768px) {
+	.navbar-nav.navbar-center {
+		position: absolute;
+		left: 50%;
+		transform: translatex(-50%);
+	}
+}
